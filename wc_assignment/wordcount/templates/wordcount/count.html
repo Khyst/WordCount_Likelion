@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script
+        src="http://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery.backstretch.min.js" charset="utf-8"></script>
+
+    <!-- Style.css -->
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2> 당신이 입력한 텍스트는 </h2>
+    
+    <h2> <span style="size:40px; margin-left:180px;">{{ total }}</span> 단어로 구성되어 있습니다 </h2>
+
+    <div class="jumbotron note"> 
+        <h1> 입력한 텍스트: </h1>
+        <!-- 입력받은 전체 텍스트 -->
+        {{ fulltext }}
+    </div>
+    
+    <div class="jumbotron note"> 
+        <h1>단어 카운트: </h1>
+        <!-- '단어 - '단어나온 횟수' -->
+        {% for word, countTotal in dictionary %}
+        {{ word }} - {{ countTotal }} 개
+        <br>
+        {% endfor %} <!-- for문 종료 -->    
+     </div>
+
+     <a href="{% url 'home' %}" class="btn btn-default"> 다시하기 </a>
+    
+</body>
+</html>
